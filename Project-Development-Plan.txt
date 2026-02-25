@@ -1,0 +1,62 @@
+Development Planning documentation:
+
+1. Project Structure
+Explanation of the folder/file structure. 
+
+The application uses Next.js, React, TypeScript, and Tailwind CSS. The folders are organized so that everything has a clear purpose: routing, data, language, and logic are all kept separate to keep the code clean and easy to maintain.
+
+
+--- DIRECTORY STRUCTURE TREE ---
+
+frontend-assignment-anousone
+|-- app
+|   |-- [locale]/
+|   |-- api/
+|   +-- globals.css
+|-- components/
+|-- const/
+|-- hooks/
+|-- stores/
+|-- actions/
+|-- lib/
+|-- types/
+|-- messages/
++-- i18n/
+
+
+--- DETAILED DIRECTORY BREAKDOWN ---
+
+* app/           : The core Next.js routing folder. It decides what users see when they visit a URL, handles language switching ([locale]), and contains secure backend APIs for live connecting (api/).
+* components/    : Holds all the visual pieces that make up the user interface (buttons, forms, layout dashboards).
+* const/         : Holds static, unchanging data lists (like lists of nationalities) to keep logic separate from UI.
+* hooks/         : Custom React functions that handle the heavy lifting behind the scenes (like form typing, managing connections, and processing dashboard updates).
+* stores/        : The live memory of the app. Keeps track of live typing progress so the staff dashboard updates instantly.
+* actions/       : Secure code that runs on the server to broadcast live updates.
+* lib/           : Setup files for external servers (like Pusher) and helper tools for CSS styles.
+* types/         : Strict rules defining how data should look to prevent errors (e.g., telephone number limits).
+* messages/      : Text files holding every word in the app in English and Thai.
+* i18n/          : Settings telling the app how and when to load those translation languages.
+
+
+
+2. Component Architecture
+Description of main components and their purposes.
+
+The components are grouped into reusable "UI" building blocks, and large "Smart" components that manage the page look.
+
+* ui/ (Folder)
+  Small, simple, and reusable UI parts that do not manage complex state.
+  - button.tsx             : A standard button customized with Tailwind colors.
+  - card.tsx               : The white box layouts used to display content.
+  - form-input.tsx         : A text box wrapped with React Hook Form rules (handles red asterisks, labels, and error messages).
+  - form-select.tsx        : A dropdown menu wrapped with React Hook Form rules.
+  - form-combobox.tsx      : A searchable dropdown menu for long lists (like Nationality).
+
+* patient-form.tsx
+  The large patient registration form layout. Its purpose is to take all the small UI form inputs (firstName, lastName, DOB) and arrange them cleanly on the screen. It connects directly to the `use-patient-form` hook to process what the user types.
+
+* staff-dashboard.tsx
+  The live monitoring table for the clinics. Its purpose is to display a grid of "PatientCards". It organizes patients into Tabs ("Active Typing" vs "Submitted") and connects to the `use-staff-dashboard` hook to automatically blink and refresh when new live data comes in.
+
+* language-switcher.tsx
+  A globally accessible dropdown button sitting at the top of the screens. Its purpose is to let users swap between English ("en") and Thai ("th"), which instantly translates the entire view using the `messages/` folder.

@@ -1,0 +1,119 @@
+{
+  "PatientForm": {
+    "title": "แบบฟอร์มลงทะเบียนผู้ป่วย",
+    "description": "กรุณากรอกข้อมูลส่วนตัวของคุณ ความคืบหน้าการกรอกข้อมูลจะถูกบันทึกแบบเรียลไทม์",
+    "prefix": "คำนำหน้าชื่อ",
+    "prefixPlaceholder": "เลือกคำนำหน้าชื่อ",
+    "prefixOptions": {
+      "mr": "นาย",
+      "mrs": "นาง",
+      "miss": "นางสาว",
+      "master": "เด็กชาย",
+      "youngMiss": "เด็กหญิง"
+    },
+    "firstName": "ชื่อจริง",
+    "firstNamePlaceholder": "อานุสรณ์",
+    "middleName": "ชื่อกลาง",
+    "middleNamePlaceholder": "ก.",
+    "lastName": "นามสกุล",
+    "lastNamePlaceholder": "ดีลพล",
+    "dateOfBirth": "วันเดือนปีเกิด",
+    "gender": "เพศ",
+    "genderPlaceholder": "เลือกเพศ",
+    "genderOptions": {
+      "male": "ชาย",
+      "female": "หญิง",
+      "other": "อื่นๆ",
+      "preferNotToSay": "ไม่ระบุ"
+    },
+    "phoneNumber": "เบอร์โทรศัพท์",
+    "phoneNumberPlaceholder": "0812345678",
+    "email": "อีเมล",
+    "emailPlaceholder": "anousone@example.com",
+    "address": "ที่อยู่แบบเต็ม",
+    "addressPlaceholder": "178/7 ถนนรัชดาภิเษก เขตจตุจักร กรุงเทพมหานคร 10900",
+    "nationality": "สัญชาติ",
+    "nationalityPlaceholder": "ไทย",
+    "preferredLanguage": "ภาษาที่ต้องการ",
+    "preferredLanguagePlaceholder": "ภาษาไทย",
+    "preferredLanguageOptions": {
+      "english": "อังกฤษ",
+      "thai": "ไทย"
+    },
+    "emergencyContactName": "ชื่อผู้ติดต่อฉุกเฉิน",
+    "emergencyContactNamePlaceholder": "นลินทร ดีลพล",
+    "emergencyContactRelationship": "ความสัมพันธ์กับผู้ป่วย",
+    "emergencyContactRelationshipPlaceholder": "พี่ชาย",
+    "emergencyContactPhone": "เบอร์โทรฉุกเฉิน",
+    "emergencyContactPhonePlaceholder": "091234567",
+    "religion": "ศาสนา (ถ้ามี)",
+    "religionPlaceholder": "เลือกศาสนา",
+    "religionOptions": {
+      "buddhism": "พุทธ",
+      "christianity": "คริสต์",
+      "islam": "อิสลาม",
+      "hinduism": "ฮินดู",
+      "other": "อื่นๆ"
+    },
+    "submit": "ส่งข้อมูลลงทะเบียน",
+    "successTitle": "ลงทะเบียนเสร็จสมบูรณ์",
+    "successDescription": "ขอบคุณที่ส่งข้อมูล ข้อมูลของคุณได้แจ้งเตือนไปยังเจ้าหน้าที่แล้ว"
+  },
+  "LanguageSwitcher": {
+    "switch": "เปลี่ยนภาษา",
+    "en": "English",
+    "th": "ภาษาไทย"
+  },
+  "StaffDashboard": {
+    "title": "รายละเอียดผู้ป่วย",
+    "description": "ข้อมูลจะซิงค์โดยอัตโนมัติขณะที่ผู้ป่วยพิมพ์",
+    "status": {
+      "inactive": "ผู้ป่วยไม่ได้ใช้งาน",
+      "active": "ผู้ป่วยกำลังพิมพ์...",
+      "submitted": "ส่งแบบฟอร์มแล้ว"
+    },
+    "waiting": "กำลังรอให้ผู้ป่วยเริ่มพิมพ์...",
+    "personalInfo": "ข้อมูลส่วนบุคคล",
+    "contactInfo": "ข้อมูลการติดต่อ",
+    "additionalDetails": "รายละเอียดเพิ่มเติม",
+    "prefix": "คำนำหน้าชื่อ",
+    "firstName": "ชื่อจริง",
+    "middleName": "ชื่อกลาง",
+    "lastName": "นามสกุล",
+    "dob": "วันเกิด",
+    "gender": "เพศ",
+    "phone": "เบอร์โทรศัพท์",
+    "email": "อีเมล",
+    "address": "ที่อยู่",
+    "nationality": "สัญชาติ",
+    "preferredLanguage": "ภาษาที่ต้องการ",
+    "religion": "ศาสนา",
+    "emergencyContact": "ผู้ติดต่อฉุกเฉิน",
+    "emergencyContactName": "ชื่อผู้ติดต่อฉุกเฉิน",
+    "emergencyContactRelationship": "ความสัมพันธ์",
+    "emergencyContactPhone": "เบอร์โทรติดต่อ"
+  },
+  "HomePage": {
+    "title": "ระบบลงทะเบียนผู้ป่วยที่ทันสมัย",
+    "subtitle": "ซิงค์แบบฟอร์มการรับผู้ป่วยกับแดชบอร์ดตรวจสอบแบบเรียลไทม์ได้อย่างราบรื่น",
+    "openPatient": "เปิดแบบฟอร์มผู้ป่วย",
+    "openStaff": "เปิดมุมมองเจ้าหน้าที่"
+  },
+  "NotFound": {
+    "title": "ไม่พบหน้าที่ต้องการ",
+    "description": "หน้าที่คุณกำลังค้นหาไม่มีอยู่หรือถูกย้ายไปแล้ว"
+  },
+  "Zod": {
+    "prefixRequired": "กรุณาระบุคำนำหน้าชื่อ",
+    "firstNameMin": "ชื่อจริงต้องมีความยาวอย่างน้อย 2 ตัวอักษร",
+    "lastNameMin": "นามสกุลต้องมีความยาวอย่างน้อย 2 ตัวอักษร",
+    "dobRequired": "กรุณาระบุวันเกิด",
+    "dobFuture": "วันเกิดไม่สามารถเป็นวันที่ในอนาคตได้",
+    "genderRequired": "กรุณาระบุเพศ",
+    "phoneInvalid": "เบอร์โทรศัพท์ไม่ถูกต้อง (เช่น 0812345678 ไม่ต้องเว้นวรรค)",
+    "emailInvalid": "รูปแบบอีเมลไม่ถูกต้อง",
+    "addressMin": "ที่อยู่ต้องมีความยาวอย่างน้อย 5 ตัวอักษร",
+    "languageRequired": "กรุณาระบุภาษาที่ต้องการ",
+    "nationalityRequired": "กรุณาระบุสัญชาติ"
+  }
+}

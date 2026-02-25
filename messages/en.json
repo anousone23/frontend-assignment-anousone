@@ -1,0 +1,119 @@
+{
+  "PatientForm": {
+    "title": "Patient Registration Form",
+    "description": "Please fill out your personal information. Your progress is saved in real-time.",
+    "prefix": "Prefix",
+    "prefixPlaceholder": "Select prefix",
+    "prefixOptions": {
+      "mr": "Mr.",
+      "mrs": "Mrs.",
+      "miss": "Miss",
+      "master": "Master",
+      "youngMiss": "Miss (Child)"
+    },
+    "firstName": "First Name",
+    "firstNamePlaceholder": "Anousone",
+    "middleName": "Middle Name",
+    "middleNamePlaceholder": "A.",
+    "lastName": "Last Name",
+    "lastNamePlaceholder": "Dilaphon",
+    "dateOfBirth": "Date of Birth",
+    "gender": "Gender",
+    "genderPlaceholder": "Select gender",
+    "genderOptions": {
+      "male": "Male",
+      "female": "Female",
+      "other": "Other",
+      "preferNotToSay": "Prefer not to say"
+    },
+    "phoneNumber": "Phone Number",
+    "phoneNumberPlaceholder": "096123456",
+    "email": "Email Address",
+    "emailPlaceholder": "anousone9102@gmail.com",
+    "address": "Full Address",
+    "addressPlaceholder": "178/7 Ratchadaphisek Road, Chatuchak, Bangkok 10900",
+    "nationality": "Nationality",
+    "nationalityPlaceholder": "Thailand",
+    "preferredLanguage": "Preferred Language",
+    "preferredLanguagePlaceholder": "English",
+    "preferredLanguageOptions": {
+      "english": "English",
+      "thai": "Thai"
+    },
+    "emergencyContactName": "Emergency Contact Name",
+    "emergencyContactNamePlaceholder": "Nalinthorn Dilaphon",
+    "emergencyContactRelationship": "Relationship to Patient",
+    "emergencyContactRelationshipPlaceholder": "Brother",
+    "emergencyContactPhone": "Phone Number",
+    "emergencyContactPhonePlaceholder": "091234567",
+    "religion": "Religion (Optional)",
+    "religionPlaceholder": "Select religion",
+    "religionOptions": {
+      "buddhism": "Buddhism",
+      "christianity": "Christianity",
+      "islam": "Islam",
+      "hinduism": "Hinduism",
+      "other": "Other"
+    },
+    "submit": "Submit Registration",
+    "successTitle": "Registration Complete",
+    "successDescription": "Thank you for submitting your information. The staff has been notified."
+  },
+  "LanguageSwitcher": {
+    "switch": "Switch Language",
+    "en": "English",
+    "th": "ภาษาไทย"
+  },
+  "StaffDashboard": {
+    "title": "Patient Details",
+    "description": "Data syncs automatically as the patient types",
+    "status": {
+      "inactive": "Patient Inactive",
+      "active": "Patient Typing...",
+      "submitted": "Form Submitted"
+    },
+    "waiting": "Waiting for patient to begin typing...",
+    "personalInfo": "Personal Information",
+    "contactInfo": "Contact Information",
+    "additionalDetails": "Additional Details",
+    "prefix": "Prefix",
+    "firstName": "First Name",
+    "middleName": "Middle Name",
+    "lastName": "Last Name",
+    "dob": "Date of Birth",
+    "gender": "Gender",
+    "phone": "Phone Number",
+    "email": "Email Address",
+    "address": "Full Address",
+    "nationality": "Nationality",
+    "preferredLanguage": "Preferred Language",
+    "religion": "Religion",
+    "emergencyContact": "Emergency Contact",
+    "emergencyContactName": "Fullname",
+    "emergencyContactRelationship": "Relationship",
+    "emergencyContactPhone": "Phone Number"
+  },
+  "HomePage": {
+    "title": "Modern Patient Registration",
+    "subtitle": "Seamlessly sync patient intake forms with the live monitoring dashboard using edge-ready real-time broadcasting.",
+    "openPatient": "Open Patient Form",
+    "openStaff": "Open Staff View"
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist or has been moved."
+  },
+  "Zod": {
+    "prefixRequired": "Prefix is required",
+    "firstNameMin": "First name must be at least 2 characters.",
+    "lastNameMin": "Last name must be at least 2 characters.",
+    "dobRequired": "Date of birth is required",
+    "dobFuture": "Date of birth cannot be in the future",
+    "genderRequired": "Gender is required",
+    "phoneInvalid": "Invalid Thai phone number (e.g., 0812345678)",
+    "emailInvalid": "Invalid email address.",
+    "addressMin": "Address must be at least 5 characters.",
+    "languageRequired": "Preferred language is required",
+    "nationalityRequired": "Nationality is required"
+  }
+}
