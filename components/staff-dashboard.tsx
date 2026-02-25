@@ -46,9 +46,6 @@ export function StaffDashboard() {
           <h1 className="text-3xl font-bold tracking-tight text-brand-secondary dark:text-slate-50">
             Staff Monitoring Dashboard
           </h1>
-          <p className="text-brand-secondary/70 dark:text-slate-400">
-            {t("description")}
-          </p>
         </div>
       </div>
 
@@ -95,7 +92,7 @@ export function StaffDashboard() {
               </CardContent>
             </Card>
           ) : (
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 z-10 relative">
+            <div className="grid grid-cols-1 gap-6 z-10 relative">
               {livePatients.map((patientData, index) => (
                 <PatientCard
                   key={patientData.sessionId || index}

@@ -27,10 +27,7 @@ export const createPatientFormSchema = (
     nationality: z.string().min(1, t("nationalityRequired")),
     emergencyContactName: z.string().optional(),
     emergencyContactRelationship: z.string().optional(),
-    emergencyContactPhone: z
-      .string()
-      .regex(/^0\d{8,9}$/, t("phoneInvalid"))
-      .optional(),
+    emergencyContactPhone: z.string().optional(),
     religion: z.string().optional(),
   });
 
