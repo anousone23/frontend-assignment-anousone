@@ -59,8 +59,8 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can use the large navigation buttons on the homepage, or manually navigate to the links below:
 
-- Click **Patient Form** or navigate to `/patient/register` to view the Patient Form.
-- Click **Staff Dashboard** or navigate to `/staff/dashboard` to view the live dashboard.
+- Click **Patient Form** or navigate to `en/patient/register` to view the Patient Form.
+- Click **Staff Dashboard** or navigate to `en/staff/dashboard` to view the live dashboard.
 
 ---
 
