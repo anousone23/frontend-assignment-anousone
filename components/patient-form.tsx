@@ -5,6 +5,7 @@ import {Form} from "@/components/ui/form";
 import {FormInput} from "@/components/ui/form-input";
 import {FormSelect} from "@/components/ui/form-select";
 import {FormCombobox} from "@/components/ui/form-combobox";
+import {FormTextarea} from "@/components/ui/form-textarea";
 import {
   Card,
   CardContent,
@@ -151,11 +152,12 @@ export function PatientForm() {
               />
             </div>
 
-            <FormInput
+            <FormTextarea
               control={form.control}
               name="address"
               label={t("address")}
               placeholder={t("addressPlaceholder")}
+              maxLength={100}
               mandatory
             />
 

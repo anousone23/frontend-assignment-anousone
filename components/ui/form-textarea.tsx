@@ -5,31 +5,27 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {Input} from "@/components/ui/input";
+import {Textarea} from "@/components/ui/textarea";
 import {type Control, type FieldPath} from "react-hook-form";
 import {type PatientFormData} from "@/types/schema";
 
-interface FormInputProps {
+interface FormTextareaProps {
   control: Control<PatientFormData>;
   name: FieldPath<PatientFormData>;
   label: string;
   placeholder?: string;
-  type?: string;
-  max?: string;
   maxLength?: number;
   mandatory?: boolean;
 }
 
-export function FormInput({
+export function FormTextarea({
   control,
   name,
   label,
   placeholder,
-  type = "text",
-  max,
   maxLength,
   mandatory = false,
-}: FormInputProps) {
+}: FormTextareaProps) {
   return (
     <FormField
       control={control}
@@ -50,11 +46,10 @@ export function FormInput({
             )}
           </div>
           <FormControl>
-            <Input
-              type={type}
+            <Textarea
               placeholder={placeholder}
-              max={max}
               maxLength={maxLength}
+              className="resize-none min-h-[100px]"
               {...field}
             />
           </FormControl>

@@ -1,9 +1,6 @@
 import {NextRequest, NextResponse} from "next/server";
 import {pusherServer} from "@/lib/pusher/server";
 
-// A dedicated REST endpoint for page unload beacons.
-// Server Actions (fetch) are often aborted by the browser during 'pagehide' or tab close.
-// navigator.sendBeacon guarantees delivery, so we need a standard API route to receive it.
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
@@ -12,7 +9,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({error: "Missing sessionId"}, {status: 400});
     }
 
-    // Broadcast the disconnect event forcefully
     await pusherServer.trigger("patient-form", "status-change", {
       sessionId: data.sessionId,
       status: "disconnected",

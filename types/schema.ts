@@ -22,7 +22,7 @@ export const createPatientFormSchema = (
     gender: z.string().min(1, t("genderRequired")),
     phoneNumber: z.string().regex(/^0\d{8,9}$/, t("phoneInvalid")),
     email: z.string().email(t("emailInvalid")),
-    address: z.string().min(5, t("addressMin")),
+    address: z.string().min(5, t("addressMin")).max(100, t("addressMax")),
     preferredLanguage: z.string().min(1, t("languageRequired")),
     nationality: z.string().min(1, t("nationalityRequired")),
     emergencyContactName: z.string().optional(),

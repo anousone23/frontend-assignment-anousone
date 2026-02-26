@@ -113,6 +113,7 @@
     "phoneInvalid": "Invalid Thai phone number (e.g., 0812345678)",
     "emailInvalid": "Invalid email address.",
     "addressMin": "Address must be at least 5 characters.",
+    "addressMax": "Address cannot exceed 100 characters.",
     "languageRequired": "Preferred language is required",
     "nationalityRequired": "Nationality is required"
   }

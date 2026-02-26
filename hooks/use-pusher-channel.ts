@@ -18,10 +18,6 @@ export function usePusherChannel(channelName: string, events: EventsConfig) {
       channel.unbind_all();
       pusherClient.unsubscribe(channelName);
     };
-    // Note: We don't include events in the dependency array to avoid
-    // constant re-subscribing if callbacks change on every render.
-    // Callers should ensure they don't depend on stale closures,
-    // or wrap their handlers in useCallback if needed.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [channelName]);
 }

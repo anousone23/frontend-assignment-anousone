@@ -7,7 +7,7 @@ export default function Home() {
   const t = useTranslations("HomePage");
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-brand-lavender dark:bg-brand-deep transition-colors duration-300">
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 md:p-12 bg-brand-lavender dark:bg-brand-deep transition-colors duration-300">
       <div
         className="absolute inset-0 z-0 bg-grid-pattern pointer-events-none"
         style={{
@@ -23,12 +23,12 @@ export default function Home() {
         <LanguageSwitcher />
       </div>
 
-      <div className="w-full text-center space-y-8 max-w-3xl mx-auto relative z-10 bg-white/60 dark:bg-brand-secondary/60 backdrop-blur-md px-6 py-10 sm:p-12 rounded-3xl shadow-xl border border-white/20 dark:border-white/5">
+      <div className="w-full text-center space-y-6 sm:space-y-8 max-w-3xl mx-auto relative z-10 bg-white/60 dark:bg-brand-secondary/60 backdrop-blur-md p-6 sm:p-12 rounded-3xl shadow-xl border border-white/20 dark:border-white/5">
         <div className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary font-medium text-sm mb-4">
           Agnos Health Smart Systems
         </div>
 
-        <h1 className="text-5xl font-bold tracking-tight text-brand-secondary dark:text-slate-50 sm:text-7xl leading-tight">
+        <h1 className="text-4xl font-bold tracking-tight text-brand-secondary dark:text-slate-50 sm:text-7xl leading-tight">
           {t("title")}
         </h1>
 

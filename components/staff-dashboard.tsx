@@ -1,17 +1,8 @@
 "use client";
 
 import {useStaffDashboard} from "@/hooks/use-staff-dashboard";
-import {useState} from "react";
-import {ChevronDown, ChevronUp} from "lucide-react";
-import {type PatientSyncData} from "@/types/schema";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {
   Table,
   TableBody,
@@ -22,14 +13,13 @@ import {
 } from "@/components/ui/table";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import {Badge} from "@/components/ui/badge";
-import {DataField} from "@/components/ui/data-field";
 import {useTranslations} from "next-intl";
+import {useStaffTranslations} from "@/hooks/use-staff-translations";
+import {PatientCard} from "@/components/ui/patient-card";
 
 export function StaffDashboard() {
   const {activePatients} = useStaffDashboard();
   const patientsList = Object.values(activePatients);
-
-  console.log(activePatients);
 
   const livePatients = patientsList.filter((p) => p.status !== "submitted");
   const submittedPatients = patientsList.filter(
@@ -37,6 +27,7 @@ export function StaffDashboard() {
   );
 
   const t = useTranslations("StaffDashboard");
+  const {formatGender, formatNationality} = useStaffTranslations();
 
   return (
     <>
@@ -155,7 +146,9 @@ export function StaffDashboard() {
                         <TableCell className="py-4">
                           {patient.lastName}
                         </TableCell>
-                        <TableCell className="py-4">{patient.gender}</TableCell>
+                        <TableCell className="py-4">
+                          {formatGender(patient.gender)}
+                        </TableCell>
                         <TableCell className="py-4 text-slate-500">
                           {patient.phoneNumber}
                         </TableCell>
@@ -164,7 +157,7 @@ export function StaffDashboard() {
                         </TableCell>
                         <TableCell className="px-6 py-4 text-right">
                           <Badge variant="outline" className="font-normal">
-                            {patient.nationality}
+                            {formatNationality(patient.nationality)}
                           </Badge>
                         </TableCell>
                       </TableRow>
@@ -177,152 +170,5 @@ export function StaffDashboard() {
         </TabsContent>
       </Tabs>
     </>
-  );
-}
-
-function PatientCard({
-  patientData,
-  index,
-  t,
-}: {
-  patientData: Partial<PatientSyncData>;
-  index: number;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  t: any;
-}) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  return (
-    <Card className="shadow-xl shadow-brand-primary/5 border-0 bg-white/60 dark:bg-brand-secondary/90 backdrop-blur-sm overflow-hidden flex flex-col h-full">
-      <CardHeader
-        className="bg-white/50 dark:bg-white/5 border-b border-slate-100 dark:border-white/10 px-6 py-6 sm:px-8 flex flex-row items-center justify-between cursor-pointer hover:bg-white/60 dark:hover:bg-white/10 transition-colors"
-        onClick={() => setIsExpanded(!isExpanded)}
-      >
-        <div>
-          <CardTitle className="text-lg text-brand-secondary dark:text-slate-100">
-            Patient {index + 1}
-          </CardTitle>
-          <CardDescription className="text-brand-secondary/70 dark:text-slate-400 text-base">
-            Session: {patientData.sessionId?.slice(0, 8)}...
-          </CardDescription>
-        </div>
-        <div className="flex items-center gap-4">
-          <div>
-            {patientData.status === "inactive" && (
-              <Badge variant="secondary" className="text-xs px-2 py-0.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-slate-400 mr-1.5 inline-block"></span>
-                {t("status.inactive")}
-              </Badge>
-            )}
-            {patientData.status === "active" && (
-              <Badge
-                variant="default"
-                className="text-xs px-2 py-0.5 bg-brand-primary text-white"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse mr-1.5 inline-block"></span>
-                {t("status.active")}
-              </Badge>
-            )}
-            {patientData.status === "submitted" && (
-              <Badge
-                variant="default"
-                className="text-xs px-2 py-0.5 bg-green-500"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-white mr-1.5 inline-block"></span>
-                {t("status.submitted")}
-              </Badge>
-            )}
-          </div>
-          <button className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 focus:outline-none">
-            {isExpanded ? (
-              <ChevronUp className="h-6 w-6" />
-            ) : (
-              <ChevronDown className="h-6 w-6" />
-            )}
-          </button>
-        </div>
-      </CardHeader>
-
-      {isExpanded && (
-        <CardContent className="p-6 bg-white/50 dark:bg-white/5 grow animate-in slide-in-from-top-2 fade-in duration-200">
-          <div className="space-y-6">
-            {/* Personal Information */}
-            <div>
-              <h3 className="text-lg font-semibold mb-3 border-b pb-2">
-                {t("personalInfo")}
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-y-4 gap-x-6">
-                <DataField label={t("prefix")} value={patientData.prefix} />
-                <DataField
-                  label={t("firstName")}
-                  value={patientData.firstName}
-                />
-                <DataField
-                  label={t("middleName")}
-                  value={patientData.middleName}
-                />
-                <DataField label={t("lastName")} value={patientData.lastName} />
-                <DataField label={t("dob")} value={patientData.dateOfBirth} />
-                <DataField label={t("gender")} value={patientData.gender} />
-              </div>
-            </div>
-
-            {/* Contact Information */}
-            <div>
-              <h3 className="text-lg font-semibold mb-3 border-b pb-2">
-                {t("contactInfo")}
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
-                <DataField label={t("phone")} value={patientData.phoneNumber} />
-                <DataField label={t("email")} value={patientData.email} />
-                <DataField
-                  label={t("address")}
-                  value={patientData.address}
-                  className="md:col-span-2"
-                />
-              </div>
-            </div>
-
-            {/* Background & Emergency */}
-            <div>
-              <h3 className="text-lg font-semibold mb-3 border-b pb-2">
-                {t("additionalDetails")}
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 gap-x-6">
-                <DataField
-                  label={t("nationality")}
-                  value={patientData.nationality}
-                />
-                <DataField
-                  label={t("preferredLanguage")}
-                  value={patientData.preferredLanguage}
-                />
-                <DataField label={t("religion")} value={patientData.religion} />
-
-                <div className="md:col-span-3 bg-slate-50 dark:bg-slate-800 p-4 rounded-md border mt-2">
-                  <h4 className="font-semibold mb-3 pb-2">
-                    {t("emergencyContact")}
-                  </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <DataField
-                      label={t("emergencyContactName")}
-                      value={patientData.emergencyContactName}
-                    />
-                    <DataField
-                      label={t("emergencyContactRelationship")}
-                      value={patientData.emergencyContactRelationship}
-                    />
-                    <DataField
-                      label={t("emergencyContactPhone")}
-                      value={patientData.emergencyContactPhone}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      )}
-    </Card>
   );
 }

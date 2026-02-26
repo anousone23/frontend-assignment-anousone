@@ -8,7 +8,6 @@ export async function syncToPusherAction(
   eventType: string,
 ) {
   try {
-    // Broadcast the form data to the 'patient-form' channel
     await pusherServer.trigger("patient-form", eventType, data);
     return {success: true};
   } catch (error) {

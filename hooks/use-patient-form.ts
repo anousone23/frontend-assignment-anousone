@@ -13,8 +13,7 @@ export function usePatientForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const isSubmittedRef = useRef(false);
   const [sessionId] = useState<string>(() => {
-    // Lazy initialization purely on the client side
-    if (typeof window === "undefined") return ""; // Will be replaced on client mount
+    if (typeof window === "undefined") return "";
 
     let currentSessionId = window.sessionStorage.getItem("patient-session-id");
     if (!currentSessionId) {
@@ -55,7 +54,6 @@ export function usePatientForm() {
       data: Omit<Partial<PatientSyncData>, "sessionId">,
       eventType: string,
     ) => {
-      // Don't sync if we haven't mounted and loaded the cache yet
       if (!sessionId) return;
 
       try {
@@ -69,8 +67,6 @@ export function usePatientForm() {
   );
 
   const hydrateForm = useCallback(() => {
-    // 1. Silent hydration: Pull from session storage only after the mount
-    // to bypass React SSR hydration mismatches
     const savedData = window.sessionStorage.getItem("patient-form-draft");
     if (savedData) {
       try {
@@ -84,9 +80,7 @@ export function usePatientForm() {
 
   const syncActiveStatus = useCallback(() => {
     if (!isSubmitted) {
-      // 2. Save form state visually to Pusher
       syncToPusher({...watchAllFields, status: "active"}, "form-update");
-      // 3. Save purely locally to session storage so language switch is retained
       window.sessionStorage.setItem(
         "patient-form-draft",
         JSON.stringify(watchAllFields),
@@ -126,16 +120,13 @@ export function usePatientForm() {
     return () => clearTimeout(inactivityTimeout);
   }, [syncInactiveStatus]);
 
-  // Handle Tab Close / Unmount cleanup
   useEffect(() => {
-    // pagehide is the most reliable event on modern browsers (especially mobile/background tabs)
     window.addEventListener("pagehide", syncDisconnectStatus);
     window.addEventListener("beforeunload", syncDisconnectStatus);
 
     return () => {
       window.removeEventListener("pagehide", syncDisconnectStatus);
       window.removeEventListener("beforeunload", syncDisconnectStatus);
-      // Run on React Unmount as well (e.g., navigating away via Next.js Link)
       syncDisconnectStatus();
     };
   }, [syncDisconnectStatus]);
@@ -143,7 +134,6 @@ export function usePatientForm() {
   async function onSubmit(data: PatientFormData) {
     isSubmittedRef.current = true;
     setIsSubmitted(true);
-    // 4. Wipe sensitive medical data from local browser storage when done
     window.sessionStorage.removeItem("patient-form-draft");
     // Note: We DO NOT remove the patient-session-id here.
     // If we drop it, the "disconnect" unmount event won't have an ID,

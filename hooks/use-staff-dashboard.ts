@@ -24,17 +24,14 @@ export function useStaffDashboard() {
 
       const existingPatient = activePatients[data.sessionId];
 
-      // If they disconnected/closed the tab
       if (data.status === "disconnected") {
-        // CRITICAL FIX: If they already submitted successfully, keep them on the board forever.
-        // We only want to delete "active" or "inactive" patients who gave up halfway.
+        //  only want to delete "active" or "inactive" patients who gave up halfway.
         if (existingPatient?.status !== "submitted") {
           removePatient(data.sessionId);
         }
         return;
       }
 
-      // Otherwise just update their status
       upsertPatient(data.sessionId, {status: data.status});
     },
     [activePatients, removePatient, upsertPatient],
