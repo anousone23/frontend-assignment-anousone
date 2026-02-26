@@ -14,7 +14,7 @@
     "firstName": "First Name",
     "firstNamePlaceholder": "Anousone",
     "middleName": "Middle Name",
-    "middleNamePlaceholder": "A.",
+    "middleNamePlaceholder": "Happy",
     "lastName": "Last Name",
     "lastNamePlaceholder": "Dilaphon",
     "dateOfBirth": "Date of Birth",
@@ -41,11 +41,11 @@
       "thai": "Thai"
     },
     "emergencyContactName": "Emergency Contact Name",
-    "emergencyContactNamePlaceholder": "Nalinthorn Dilaphon",
+    "emergencyContactNamePlaceholder": "Somsak Dilaphon",
     "emergencyContactRelationship": "Relationship to Patient",
     "emergencyContactRelationshipPlaceholder": "Brother",
     "emergencyContactPhone": "Phone Number",
-    "emergencyContactPhonePlaceholder": "091234567",
+    "emergencyContactPhonePlaceholder": "096884323",
     "religion": "Religion (Optional)",
     "religionPlaceholder": "Select religion",
     "religionOptions": {
