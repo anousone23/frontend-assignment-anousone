@@ -101,7 +101,8 @@
   },
   "NotFound": {
     "title": "Page Not Found",
-    "description": "The page you are looking for does not exist or has been moved."
+    "description": "The page you are looking for does not exist or has been moved.",
+    "backToHome": "Back to Home"
   },
   "Zod": {
     "prefixRequired": "Prefix is required",

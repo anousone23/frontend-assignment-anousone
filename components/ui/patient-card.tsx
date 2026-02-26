@@ -29,6 +29,7 @@ export function PatientCard({
     formatLanguage,
     formatReligion,
     formatNationality,
+    formatDate,
   } = useStaffTranslations();
 
   return (
@@ -107,7 +108,10 @@ export function PatientCard({
                   value={patientData.middleName}
                 />
                 <DataField label={t("lastName")} value={patientData.lastName} />
-                <DataField label={t("dob")} value={patientData.dateOfBirth} />
+                <DataField
+                  label={t("dob")}
+                  value={formatDate(patientData.dateOfBirth)}
+                />
                 <DataField
                   label={t("gender")}
                   value={formatGender(patientData.gender)}

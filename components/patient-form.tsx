@@ -3,6 +3,7 @@
 import {Button} from "@/components/ui/button";
 import {Form} from "@/components/ui/form";
 import {FormInput} from "@/components/ui/form-input";
+import {FormDatePicker} from "@/components/ui/form-date-picker";
 import {FormSelect} from "@/components/ui/form-select";
 import {FormCombobox} from "@/components/ui/form-combobox";
 import {FormTextarea} from "@/components/ui/form-textarea";
@@ -104,12 +105,11 @@ export function PatientForm() {
 
             {/* Personal Details Row 2 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <FormInput
+              <FormDatePicker
                 control={form.control}
                 name="dateOfBirth"
                 label={t("dateOfBirth")}
-                type="date"
-                max={new Date().toISOString().split("T")[0]}
+                placeholder="DD-MM-YYYY"
                 mandatory
               />
               <FormSelect
